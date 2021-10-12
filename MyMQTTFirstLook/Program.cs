@@ -5,9 +5,9 @@ using MQTTnet;
 using System.Text;
 using static System.Console;
 using static Serilog.Log;
+using System.Threading;
 
-
-
+var wait = new ManualResetEvent(false);
 WriteLine("Hello World!");
 var option = new MqttServerOptionsBuilder().WithDefaultEndpoint()
     .WithDefaultEndpointPort(8200)
@@ -16,6 +16,7 @@ var option = new MqttServerOptionsBuilder().WithDefaultEndpoint()
 var mqttServer = new MqttFactory().CreateMqttServer();
 await mqttServer.StartAsync(option.Build());
 ReadLine();
+wait.Set();
 static void OnNewConnection(MqttConnectionValidatorContext context)
 {
     WriteLine(
