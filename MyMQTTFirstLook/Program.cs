@@ -16,7 +16,7 @@ var option = new MqttServerOptionsBuilder().WithDefaultEndpoint()
 var mqttServer = new MqttFactory().CreateMqttServer();
 await mqttServer.StartAsync(option.Build());
 ReadLine();
-wait.Set();
+wait.WaitOne();
 static void OnNewConnection(MqttConnectionValidatorContext context)
 {
     WriteLine(
