@@ -6,8 +6,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MQTTnet" Version="3.0.16" />
     <PackageReference Include="MQTTnet.Extensions.ManagedClient" Version="3.0.16" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SharedItems\SharedItems.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="cert.pem">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="key.pem">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

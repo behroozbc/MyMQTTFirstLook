@@ -1,12 +1,12 @@
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
 FROM mcr.microsoft.com/dotnet/runtime:5.0 AS base
-EXPOSE 8200
 WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 COPY ["MyMQTTFirstLook/MyMQTTFirstLook.Server.csproj", "MyMQTTFirstLook/"]
+COPY ["SharedItems/SharedItems.csproj", "SharedItems/"]
 RUN dotnet restore "MyMQTTFirstLook/MyMQTTFirstLook.Server.csproj"
 COPY . .
 WORKDIR "/src/MyMQTTFirstLook"

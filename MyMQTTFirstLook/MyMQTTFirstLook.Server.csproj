@@ -7,7 +7,9 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
-    <PackageReference Include="MQTTnet" Version="3.0.16" />
     <PackageReference Include="Serilog" Version="2.10.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharedItems\SharedItems.csproj" />
   </ItemGroup>
 </Project>
